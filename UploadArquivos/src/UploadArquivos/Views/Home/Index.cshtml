@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model UploadArquivos.Model.Municipio
+
+<form asp-action="GerarRelatorio" asp-controller="Home"  enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="municipio">Nome do Município:</label>
+        <input type="text" class="form-control" asp-for="Nome" as placeholder="Nome do Município">
+    </div>
+    <div class="form-group">
+        <label for="arquivo">Selecionar arquivo...</label>
+        <input type="file" asp-for="Arquivo">
+        <p class="help-block">Selecione no seu computador o arquivo BPA</p>
+    </div>
+    <button type="submit" class="btn btn-default">Gerar relatório</button>
+</form>
