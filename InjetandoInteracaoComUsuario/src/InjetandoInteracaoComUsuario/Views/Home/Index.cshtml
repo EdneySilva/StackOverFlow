@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model InjetandoInteracaoComUsuario.Controllers.IQuestionBox
+<form asp-controller="Home" asp-action="Index">
+
+    <input type="submit" name="btnDoSomething" value="All about Edney" />
+</form>
+
+@section scripts{
+    <script>
+        function showMessage(message, id) {
+            var confirm = window.confirm(message);
+            $.post("/Home/Answer", { result: confirm, id: id }, function (e) {
+                alert(e);
+            })
+        }
+
+    </script>
+    @Model?.ShowMessage()
+}
